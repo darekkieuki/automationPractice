@@ -23,6 +23,7 @@ const signupSelector = {
   zipcodeInput: "#zipcode",
   mobileInput: "#mobile_number",
   registerButton: '[data-qa="create-account"]',
+  accountCreated: '[data-qa="account-created"]'
 };
 const {
   nameInput,
@@ -43,6 +44,7 @@ const {
   zipcodeInput,
   mobileInput,
   registerButton,
+  accountCreated
 } = signupSelector;
 const { usernameInput, passwordInput, logInButton } = loginSelector;
 export {
@@ -67,4 +69,5 @@ export {
   zipcodeInput,
   mobileInput,
   registerButton,
+  accountCreated
 };
