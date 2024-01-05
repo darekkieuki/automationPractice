@@ -25,6 +25,7 @@ const signupSelector = {
   registerButton: '[data-qa="create-account"]',
   accountCreated: '[data-qa="account-created"]'
 };
+
 const {
   nameInput,
   signupName,
@@ -46,7 +47,9 @@ const {
   registerButton,
   accountCreated
 } = signupSelector;
+
 const { usernameInput, passwordInput, logInButton } = loginSelector;
+
 export {
   emailInput,
   nameInput,

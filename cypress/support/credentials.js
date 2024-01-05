@@ -33,11 +33,12 @@ const credentials = {
 };
 
 const signUpData = {
-  savedUsername: credentials.randomUserName,
   savedUserEmail: credentials.randomUserEmail,
+  savedPassword: credentials.randomPassword
 };
 
 const { password, username } = incorrectCredentials;
+
 const {
   randomCountry,
   randomFirstName,
@@ -54,7 +55,9 @@ const {
   randomZipcode,
   randomPhoneNumber,
 } = credentials;
-const { savedUserEmail, savedUsername } = signUpData;
+
+const { savedUserEmail, savedPassword } = signUpData;
+
 export {
   randomCountry,
   randomFirstName,
@@ -63,7 +66,6 @@ export {
   randomUserEmail,
   randomUserName,
   savedUserEmail,
-  savedUsername,
   randomPassword,
   randomLastName,
   randomAddress,
@@ -74,4 +76,5 @@ export {
   randomDay,
   randomMonth,
   randomYear,
+  savedPassword
 };
