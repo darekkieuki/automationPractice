@@ -1,12 +1,14 @@
-import { beforeEach } from "mocha";
-// import { savedPassword, savedUserEmail } from "../support/credentials";
-import { usernameInput, passwordInput, logInButton } from "../support/login";
+
+
+
+import { loginSelector } from "../support/login";
+const { logInButton, passwordInput, usernameInput } = loginSelector
 
 describe('Login with correct credentials', () => {
   let userData;
 
   beforeEach(() => {
-    cy.fixture('regdisaster').then((users) => {
+    cy.fixture('register').then((users) => {
       userData = users;
     });
   });
@@ -18,6 +20,22 @@ describe('Login with correct credentials', () => {
     cy.visit('/login');
     cy.get(usernameInput).type(email);
     cy.get(passwordInput).type(password);
-    cy.get(logInButton).click();
+
+    cy.intercept("POST", `**/login`).as("firstIntercept")
+
+    cy.get(logInButton).click()
+
+    // cy.wait("@firstIntercept")
+    // .its("request.body")
+    // .then((requestPayload) =>  {
+    //   expect(requestPayload.password).to.equal(password)
+    // })
+
+    cy.wait("@firstIntercept")
+  .its("request.body")
+  .then((requestPayload) => {
+    const formData = new URLSearchParams(requestPayload);
+    expect(formData.get("email")).to.equal(email);
   });
-});
+  })
+})

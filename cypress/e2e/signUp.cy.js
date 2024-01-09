@@ -1,4 +1,10 @@
 import {
+credentials
+} from "../support/credentials";
+
+const {
+  randomCountry,
+  randomFirstName,
   randomDay,
   randomMonth,
   randomYear,
@@ -11,31 +17,33 @@ import {
   randomCity,
   randomZipcode,
   randomPhoneNumber,
-  randomFirstName,
-  randomCountry,
-} from "../support/credentials";
+} = credentials;
 
 import {
-  nameInput,
-  signupName,
-  signupMail,
-  signUpButton,
-  emailInput,
-  signUpPassword,
+  signupSelector,
+} from "../support/login";
+
+const { 
+  signupName, 
+  signupMail, 
+  signUpButton, 
+  nameInput, 
+  emailInput, 
+  signUpPassword, 
   daySelector,
   monthSelector,
-  yearSelector,
-  firstNameInput,
-  lastNameInput,
-  addressInput,
-  countrySelector,
-  stateInput,
-  cityInput,
-  zipcodeInput,
-  mobileInput,
-  registerButton,
-  accountCreated,
-} from "../support/login";
+  yearSelector, 
+  firstNameInput, 
+  lastNameInput, 
+  addressInput, 
+  countrySelector, 
+  stateInput, 
+  cityInput, 
+  zipcodeInput, 
+  mobileInput, 
+  registerButton, 
+  accountCreated
+ } = signupSelector
 
 
 describe("Creates new account", () => {
@@ -44,7 +52,7 @@ describe("Creates new account", () => {
     signUp(randomUserName)
     register()
     assertion()
-    cy.writeFile('cypress/fixtures/regdisaster.json', { randomUserEmail, randomPassword})
+    cy.writeFile('cypress/fixtures/register.json', { randomUserEmail, randomPassword})
   });
 });
 
